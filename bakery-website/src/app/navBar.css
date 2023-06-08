@@ -1,0 +1,33 @@
+.hover-change-color:hover {
+  color: rgb(233, 162, 30) !important;
+  font-weight: bold !important;
+  text-decoration: underline !important;
+  text-decoration-color: rgb(14, 126, 10) !important;
+  text-decoration-thickness: 2px !important;
+}
+
+.search-input {
+  border: 1px solid rgb(23, 160, 19) !important;
+}
+
+.brand-name {
+  font-family: "Sacramento", cursive;
+  font-size: 2rem;
+  margin-left: 0.5em;
+  font-weight: 600;
+  color: #f1557a;
+}
+
+.cart {
+  text-decoration: none !important;
+}
+
+.shopping-cart {
+  border: none;
+  background: transparent;
+}
+
+.shopping-cart:hover {
+  transform: scale(1.1);
+  filter: drop-shadow(0 2px 4px rgba(14, 126, 10, 0.5));
+}
