@@ -2,19 +2,22 @@ import "./orderForm.css";
 
 import React, { useState } from "react";
 
-export default function OpenOrderFormModal({
-  showOrderFormModal,
-  setShowOrderFormModal,
-}: {
-  showOrderFormModal: boolean;
-  setShowOrderFormModal: React.Dispatch<React.SetStateAction<boolean>>;
-}) {
-  const closeModal = () => setShowOrderFormModal(false);
+export default function OpenOrderFormModal() {
+  //   {
+  //   showOrderFormModal,
+  //   setShowOrderFormModal,
+  // }: {
+  //   showOrderFormModal: boolean;
+  //   setShowOrderFormModal: React.Dispatch<React.SetStateAction<boolean>>;
+  // }
+  // const closeModal = () => setShowOrderFormModal(false);
+
+  // {`modal fade ${showOrderFormModal ? "show" : ""}`}
 
   return (
     <div
-      className={`modal fade ${showOrderFormModal ? "show" : ""}`}
-      style={{ display: showOrderFormModal ? "block" : "none" }}
+      className="modal fade"
+      // style={{ display: showOrderFormModal ? "block" : "none" }}
       tabIndex={-1}
       id="orderModal"
       role="dialog"
@@ -37,7 +40,7 @@ export default function OpenOrderFormModal({
               className="btn-close col-1"
               data-bs-dismiss="modal"
               aria-label="Close"
-              onClick={closeModal}
+              // onClick={closeModal}
             ></button>
           </div>
           <div className="modal-body">

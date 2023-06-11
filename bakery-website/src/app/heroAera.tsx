@@ -1,15 +1,13 @@
-"use client";
-
 import { useState } from "react";
 import "./heroArea.css";
 import OpenOrderFormModal from "./orderForm";
 
 export default function HeroAera() {
-  const [showOrderFormModal, setShowOrderFormModal] = useState<boolean>(false);
+  // const [showOrderFormModal, setShowOrderFormModal] = useState<boolean>(false);
 
-  const handleOrderNowOnClick = () => {
-    setShowOrderFormModal(true);
-  };
+  // const handleOrderNowOnClick = () => {
+  //   setShowOrderFormModal(true);
+  // };
 
   return (
     <>
@@ -31,7 +29,9 @@ export default function HeroAera() {
               <button
                 type="button"
                 className="btn btn-outline-success btn-lg"
-                onClick={handleOrderNowOnClick}
+                data-bs-toggle="modal"
+                data-bs-target="#orderModal"
+                // onClick={handleOrderNowOnClick}
               >
                 Order now
               </button>
@@ -40,10 +40,12 @@ export default function HeroAera() {
         </div>
       </div>
 
-      <OpenOrderFormModal
+      <OpenOrderFormModal />
+
+      {/* <OpenOrderFormModal
         showOrderFormModal={showOrderFormModal}
         setShowOrderFormModal={setShowOrderFormModal}
-      />
+      /> */}
     </>
   );
 }

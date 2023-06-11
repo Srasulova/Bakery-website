@@ -7,8 +7,15 @@ import delivery from "./assets/delivery-service.png";
 import order from "./assets/order.png";
 import piping from "./assets/piping.png";
 import "./howItWorks.css";
+import OpenOrderFormModal from "./orderForm";
 
 export default function HowItWorks() {
+  const [showOrderFormModal, setShowOrderFormModal] = useState<boolean>(false);
+
+  const handleOrderNowOnClick = () => {
+    setShowOrderFormModal(true);
+  };
+
   return (
     <>
       <div
@@ -129,12 +136,25 @@ export default function HowItWorks() {
             </div>
           </div>
           <div className="order-btn">
-            <button type="button" className="btn btn-success btn-lg">
+            <button
+              type="button"
+              className="btn btn-success btn-lg"
+              data-bs-toggle="modal"
+              data-bs-target="#orderModal"
+              // onClick={handleOrderNowOnClick}
+            >
               Order now
             </button>
           </div>
         </div>
       </div>
+
+      <OpenOrderFormModal />
+
+      {/* <OpenOrderFormModal
+        showOrderFormModal={showOrderFormModal}
+        setShowOrderFormModal={setShowOrderFormModal}
+      /> */}
     </>
   );
 }
