@@ -10,12 +10,6 @@ import "./howItWorks.css";
 import OpenOrderFormModal from "./orderForm";
 
 export default function HowItWorks() {
-  const [showOrderFormModal, setShowOrderFormModal] = useState<boolean>(false);
-
-  const handleOrderNowOnClick = () => {
-    setShowOrderFormModal(true);
-  };
-
   return (
     <>
       <div
@@ -141,7 +135,6 @@ export default function HowItWorks() {
               className="btn btn-success btn-lg"
               data-bs-toggle="modal"
               data-bs-target="#orderModal"
-              // onClick={handleOrderNowOnClick}
             >
               Order now
             </button>
@@ -150,11 +143,6 @@ export default function HowItWorks() {
       </div>
 
       <OpenOrderFormModal />
-
-      {/* <OpenOrderFormModal
-        showOrderFormModal={showOrderFormModal}
-        setShowOrderFormModal={setShowOrderFormModal}
-      /> */}
     </>
   );
 }
