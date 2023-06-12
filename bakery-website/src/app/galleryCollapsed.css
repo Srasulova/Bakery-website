@@ -1,0 +1,10 @@
+.galleryCollapsed {
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  background-color: rgb(247, 239, 255);
+}
+
+.galleryContainer {
+  overflow: hidden;
+}
