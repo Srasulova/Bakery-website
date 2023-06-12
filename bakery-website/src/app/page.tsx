@@ -7,6 +7,7 @@ import HeroAera from "./heroAera";
 import HowItWorks from "./howItworks";
 import Footer from "./footer";
 import { useState } from "react";
+import GalleryCollapsed from "./galleryCollapsed";
 
 export default function Home() {
   return (
@@ -14,6 +15,7 @@ export default function Home() {
       <NavBar />
       <HeroAera />
       <HowItWorks />
+      <GalleryCollapsed />
       <Footer />
     </main>
   );
