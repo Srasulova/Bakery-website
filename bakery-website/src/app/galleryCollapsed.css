@@ -4,3 +4,9 @@
   overflow: hidden;
   background-color: rgb(247, 239, 255);
 }
+
+.arrows-div {
+  position: relative;
+  top: -100px;
+  z-index: 1;
+}
