@@ -37,8 +37,8 @@ export default function GalleryCollapsed() {
           </h2>
         </div>
 
-        <div className="galleryContainer container-fluid container">
-          <div className="row justify-content-center">
+        <div className="galleryContainer container-fluid container ">
+          <div className="row justify-content-center ">
             <div className="col-md-6 gallery-img main-img">
               <Image
                 className="img-fluid rounded"
@@ -77,6 +77,16 @@ export default function GalleryCollapsed() {
                     />
                   </div>
                 ))}
+              </div>
+              <div className="row justify-content-end">
+                <div className="col-md-2 d-flex justify-content-end mt-3">
+                  <button
+                    type="button"
+                    className="moreBtn btn btn-sm btn-outline-success fw-medium"
+                  >
+                    More -&gt;
+                  </button>
+                </div>
               </div>
             </div>
           </div>

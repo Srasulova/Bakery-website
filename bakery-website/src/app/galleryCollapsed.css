@@ -16,3 +16,13 @@
   background: transparent;
   border: none;
 }
+
+.moreBtn {
+  border: none !important;
+}
+
+.moreBtn:hover {
+  background: none !important;
+  color: rgb(29, 130, 26) !important;
+  font-weight: 800 !important;
+}
