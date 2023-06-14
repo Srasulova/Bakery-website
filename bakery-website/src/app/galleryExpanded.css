@@ -1,0 +1,42 @@
+.gallery {
+  height: 250vh;
+  width: 100vw;
+  overflow: hidden;
+  background-color: rgb(247, 239, 255);
+}
+
+.btn-less {
+  border: none !important;
+}
+
+.btn-less:hover {
+  background: none !important;
+  color: rgb(29, 130, 26) !important;
+  font-weight: 800 !important;
+}
+
+.gallery-img {
+  transition: transform 0.3s, filter 0.3s;
+}
+
+/* .gallery-img:hover {
+  transform: scale(1.1);
+  filter: brightness(125%);
+  cursor: pointer;
+  filter: drop-shadow(15px 15px 4px rgba(0, 0, 0, 0.7));
+}
+
+.gallery-img:active {
+  transform: translateY(5px);
+} */
+
+.gallery-img:hover {
+  transform: scale(1.1);
+  filter: brightness(125%);
+  cursor: pointer;
+  box-shadow: 15px 15px 4px rgba(0, 0, 0, 0.7);
+}
+
+.gallery-img:active {
+  transform: scale(1.1) translateY(6px);
+}
