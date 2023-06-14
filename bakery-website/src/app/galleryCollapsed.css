@@ -10,3 +10,9 @@
   top: -100px;
   z-index: 1;
 }
+
+.previousImage,
+.nextImage {
+  background: transparent;
+  border: none;
+}

@@ -46,16 +46,20 @@ export default function GalleryCollapsed() {
                 alt={mainImage.alt}
               />
               <div className="arrows-div d-flex justify-content-between mx-3">
-                <i
-                  className="bi bi-arrow-left-circle-fill"
-                  style={{ fontSize: "3rem", opacity: 0.5, color: "white" }}
-                  onClick={showPreviousImage}
-                ></i>
-                <i
-                  className="bi bi-arrow-right-circle-fill"
-                  style={{ fontSize: "3rem", opacity: 0.5, color: "white" }}
-                  onClick={showNextImage}
-                ></i>
+                <button className="previousImage">
+                  <i
+                    className="bi bi-arrow-left-circle-fill"
+                    style={{ fontSize: "3rem", opacity: 0.6, color: "white" }}
+                    onClick={showPreviousImage}
+                  ></i>
+                </button>
+                <button className="nextImage">
+                  <i
+                    className="bi bi-arrow-right-circle-fill"
+                    style={{ fontSize: "3rem", opacity: 0.6, color: "white" }}
+                    onClick={showNextImage}
+                  ></i>
+                </button>
               </div>
             </div>
             <div className="col-md-6 gallery-img container">
