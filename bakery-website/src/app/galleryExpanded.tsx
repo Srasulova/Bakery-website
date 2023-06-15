@@ -3,7 +3,13 @@ import { useState } from "react";
 import "./galleryExpanded.css";
 import galleryPictures from "./galleryImages";
 
-export default function GalleryExpanded() {
+interface GalleryCollapsedProps {
+  toggleGallery: () => void;
+}
+
+export default function GalleryExpanded({
+  toggleGallery,
+}: GalleryCollapsedProps) {
   return (
     <div className="gallery">
       <div className="gallery-title" id="gallery-title">
@@ -16,6 +22,7 @@ export default function GalleryExpanded() {
         <button
           type="button"
           className="btn btn-outline-success btn-less btn-sm mt-3 fw-medium mb-2"
+          onClick={toggleGallery}
         >
           Less {"<-"}
         </button>

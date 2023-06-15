@@ -3,7 +3,13 @@ import { useState } from "react";
 import "./galleryCollapsed.css";
 import galleryPictures from "./galleryImages";
 
-export default function GalleryCollapsed() {
+interface GalleryCollapsedProps {
+  toggleGallery: () => void;
+}
+
+export default function GalleryCollapsed({
+  toggleGallery,
+}: GalleryCollapsedProps) {
   const rightSideGridImages: any = galleryPictures.slice(0, 9);
   const [currentIndex, setCurrentIndex]: [
     number,
@@ -39,7 +45,7 @@ export default function GalleryCollapsed() {
 
         <div className="galleryContainer container-fluid container ">
           <div className="row justify-content-center ">
-            <div className="col-md-6 gallery-img main-img">
+            <div className="col-md-6 gallery-image main-img">
               <Image
                 className="img-fluid rounded"
                 src={mainImage.src}
@@ -62,7 +68,7 @@ export default function GalleryCollapsed() {
                 </button>
               </div>
             </div>
-            <div className="col-md-6 gallery-img container">
+            <div className="col-md-6 gallery-image container">
               <div className="row row-cols-3 g-2">
                 {rightSideGridImages.map((image: any, index: number) => (
                   <div
@@ -83,6 +89,7 @@ export default function GalleryCollapsed() {
                   <button
                     type="button"
                     className="moreBtn btn btn-sm btn-outline-success fw-medium"
+                    onClick={toggleGallery}
                   >
                     More -&gt;
                   </button>
