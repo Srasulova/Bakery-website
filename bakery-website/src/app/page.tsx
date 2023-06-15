@@ -11,12 +11,24 @@ import GalleryCollapsed from "./galleryCollapsed";
 import GalleryExpanded from "./galleryExpanded";
 
 export default function Home() {
+  const [showGalleryExpanded, setShowGalleryExpaned] = useState(false);
+
+  const handleToggleGallery = () => {
+    setShowGalleryExpaned(!showGalleryExpanded);
+  };
+
   return (
     <main className="">
       <NavBar />
       <HeroAera />
       <HowItWorks />
-      <GalleryExpanded />
+      {showGalleryExpanded ? (
+        <GalleryExpanded toggleGallery={handleToggleGallery} />
+      ) : (
+        <GalleryCollapsed toggleGallery={handleToggleGallery} />
+      )}
+
+      {/* <GalleryExpanded /> */}
       {/* <GalleryCollapsed /> */}
 
       <Footer />
