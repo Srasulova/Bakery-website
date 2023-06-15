@@ -19,17 +19,6 @@
   transition: transform 0.3s, filter 0.3s;
 }
 
-/* .gallery-img:hover {
-  transform: scale(1.1);
-  filter: brightness(125%);
-  cursor: pointer;
-  filter: drop-shadow(15px 15px 4px rgba(0, 0, 0, 0.7));
-}
-
-.gallery-img:active {
-  transform: translateY(5px);
-} */
-
 .gallery-img:hover {
   transform: scale(1.1);
   filter: brightness(125%);
