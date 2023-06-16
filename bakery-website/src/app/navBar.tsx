@@ -1,6 +1,7 @@
 import "./navBar.css";
 import logo from "./assets/new logo.png";
 import Image from "next/image";
+import ShoppingCart from "./shoppingCart";
 
 export default function NavBar() {
   return (
@@ -77,7 +78,12 @@ export default function NavBar() {
                 Search
               </button>
             </form>
-            <button type="button" className=" shopping-cart d-flex me-5">
+            <button
+              type="button"
+              className=" shopping-cart d-flex me-5"
+              data-bs-toggle="modal"
+              data-bs-target="#shoppingCartModal"
+            >
               <a className="cart my-auto mx-2 text-success fw-bolder" href="#">
                 Cart
               </a>
@@ -89,6 +95,8 @@ export default function NavBar() {
           </div>
         </div>
       </nav>
+
+      <ShoppingCart />
     </>
   );
 }
