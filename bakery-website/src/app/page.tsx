@@ -9,6 +9,7 @@ import Footer from "./footer";
 import { useState } from "react";
 import GalleryCollapsed from "./galleryCollapsed";
 import GalleryExpanded from "./galleryExpanded";
+import WhatWeMake from "./whatWeMake";
 
 export default function Home() {
   const [showGalleryExpanded, setShowGalleryExpaned] = useState(false);
@@ -21,6 +22,7 @@ export default function Home() {
     <main className="">
       <NavBar />
       <HeroAera />
+      <WhatWeMake />
       <HowItWorks />
       {showGalleryExpanded ? (
         <GalleryExpanded toggleGallery={handleToggleGallery} />
