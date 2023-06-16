@@ -1,23 +1,66 @@
 import "./orderForm.css";
 
-import React, { useState } from "react";
+import React, { SetStateAction, useState } from "react";
+
+type OrderDetails = {
+  name: string;
+  date: string;
+  email: string;
+  number: string | number;
+  cakeFlavor: string;
+  fillingFlavor: string;
+  imageSrc: string;
+  amount: number;
+  guests: number;
+  deliveryMethod: string;
+  address: string;
+  city: string;
+  state: string;
+  zipCode: number;
+  comments: string;
+};
 
 export default function OpenOrderFormModal() {
-  //   {
-  //   showOrderFormModal,
-  //   setShowOrderFormModal,
-  // }: {
-  //   showOrderFormModal: boolean;
-  //   setShowOrderFormModal: React.Dispatch<React.SetStateAction<boolean>>;
-  // }
-  // const closeModal = () => setShowOrderFormModal(false);
+  const [formData, setFormData] = useState<OrderDetails>({
+    name: "",
+    date: "",
+    email: "",
+    number: "",
+    cakeFlavor: "",
+    fillingFlavor: "",
+    imageSrc: "",
+    amount: 0,
+    guests: 0,
+    deliveryMethod: "",
+    address: "",
+    city: "",
+    state: "",
+    zipCode: 0,
+    comments: "",
+  });
 
-  // {`modal fade ${showOrderFormModal ? "show" : ""}`}
+  function handleInputChange(
+    event: React.ChangeEvent<
+      HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement
+    >
+  ) {
+    const { name, value } = event.target;
+    setFormData((prevFormData) => ({
+      ...prevFormData,
+      [name]: value,
+    }));
+  }
+
+  function handleFormSubmit(event: React.FormEvent) {
+    event.preventDefault();
+    const cartItems = formData;
+    console.log(cartItems);
+    console.log(cartItems.name);
+  }
 
   return (
     <div
       className="modal fade"
-      // style={{ display: showOrderFormModal ? "block" : "none" }}
       tabIndex={-1}
       id="orderModal"
       role="dialog"
@@ -40,11 +83,10 @@ export default function OpenOrderFormModal() {
               className="btn-close col-1"
               data-bs-dismiss="modal"
               aria-label="Close"
-              // onClick={closeModal}
             ></button>
           </div>
           <div className="modal-body">
-            <form className="row g-3">
+            <form className="row g-3" onSubmit={handleFormSubmit}>
               <div className="col-md-6">
                 <label className="form-label">Name</label>
                 <input
@@ -52,7 +94,8 @@ export default function OpenOrderFormModal() {
                   className="form-control form-control-sm"
                   id="inputName"
                   name="name"
-                  value="{formData.name}"
+                  value={formData.name}
+                  onChange={handleInputChange}
                   required
                 />
               </div>
@@ -65,7 +108,8 @@ export default function OpenOrderFormModal() {
                   type="date"
                   id="date-input"
                   name="date"
-                  value="{formData.date}"
+                  value={formData.date}
+                  onChange={handleInputChange}
                   required
                 />
               </div>
@@ -77,7 +121,8 @@ export default function OpenOrderFormModal() {
                   className="form-control form-control-sm"
                   id="inputEmail4"
                   name="email"
-                  value="{formData.email}"
+                  value={formData.email}
+                  onChange={handleInputChange}
                   required
                 />
               </div>
@@ -91,7 +136,8 @@ export default function OpenOrderFormModal() {
                     className="form-control form-control-sm"
                     id="inlineFormInputGroupUsername"
                     name="number"
-                    value="{formData.number}"
+                    value={formData.number}
+                    onChange={handleInputChange}
                     required
                   />
                 </div>
@@ -103,7 +149,8 @@ export default function OpenOrderFormModal() {
                   className="form-select form-select-sm"
                   aria-label=".form-select-sm example"
                   name="cakeFlavor"
-                  value="{formData.cakeFlavor}"
+                  value={formData.cakeFlavor}
+                  onChange={handleInputChange}
                   required
                 >
                   <option value="" disabled selected>
@@ -126,7 +173,8 @@ export default function OpenOrderFormModal() {
                   className="form-select form-select-sm"
                   aria-label=".form-select-sm example"
                   name="fillingFlavor"
-                  value="{formData.fillingFlavor}"
+                  value={formData.fillingFlavor}
+                  onChange={handleInputChange}
                   required
                 >
                   <option value="" disabled selected>
@@ -147,7 +195,8 @@ export default function OpenOrderFormModal() {
                   className="form-control form-control-sm"
                   id="amount"
                   name="amount"
-                  value="{formData.amount}"
+                  value={formData.amount}
+                  onChange={handleInputChange}
                   required
                 />
               </div>
@@ -158,7 +207,8 @@ export default function OpenOrderFormModal() {
                   className="form-control form-control-sm"
                   id="guests"
                   name="guests"
-                  value="{formData.guests}"
+                  value={formData.guests}
+                  onChange={handleInputChange}
                   required
                 />
               </div>
@@ -173,7 +223,8 @@ export default function OpenOrderFormModal() {
                     type="file"
                     id="formFile"
                     name="imageSrc"
-                    value="{formData.imageSrc}"
+                    value={formData.imageSrc}
+                    onChange={handleInputChange}
                   />
                 </div>
 
@@ -184,8 +235,8 @@ export default function OpenOrderFormModal() {
                       name="deliveryMethod"
                       type="radio"
                       value="Delivery"
-                      //   checked="formData.deliveryMethod ==="
-
+                      checked={formData.deliveryMethod === "Delivery"}
+                      onChange={handleInputChange}
                       required
                     />
                     <label className="form-check-label">Delivery</label>
@@ -196,8 +247,8 @@ export default function OpenOrderFormModal() {
                       name="deliveryMethod"
                       type="radio"
                       value="Pickup"
-                      //   checked={formData.deliveryMethod === "Pickup"}
-
+                      checked={formData.deliveryMethod === "Pickup"}
+                      onChange={handleInputChange}
                       required
                     />
                     <label className="form-check-label">Pick up</label>
@@ -212,8 +263,8 @@ export default function OpenOrderFormModal() {
                   className="form-control form-control-sm"
                   id="inputAddress2"
                   name="address"
-                  //   value={formData.address}
-
+                  value={formData.address}
+                  onChange={handleInputChange}
                   placeholder="Apartment, studio, or floor"
                 />
               </div>
@@ -224,7 +275,8 @@ export default function OpenOrderFormModal() {
                   className="form-control form-control-sm"
                   id="inputCity"
                   name="city"
-                  value="{formData.city}"
+                  value={formData.city}
+                  onChange={handleInputChange}
                 />
               </div>
               <div className="col-md-4">
@@ -233,7 +285,8 @@ export default function OpenOrderFormModal() {
                   id="inputState"
                   className="form-select form-select-sm"
                   name="state"
-                  value="{formData.state}"
+                  value={formData.state}
+                  onChange={handleInputChange}
                 >
                   <option value="" disabled selected>
                     Select a state
@@ -249,7 +302,8 @@ export default function OpenOrderFormModal() {
                   className="form-control form-control-sm"
                   id="inputZip"
                   name="zipCode"
-                  value="{formData.zipCode}"
+                  value={formData.zipCode}
+                  onChange={handleInputChange}
                 />
               </div>
               <div className="col-12">
@@ -259,7 +313,8 @@ export default function OpenOrderFormModal() {
                     className="form-control form-control-sm"
                     id="exampleFormControlTextarea1"
                     name="comments"
-                    value="{formData.comments}"
+                    value={formData.comments}
+                    onChange={handleInputChange}
                     placeholder="Please, add a birthday message..."
                     rows={3}
                     style={{ resize: "none" }}
