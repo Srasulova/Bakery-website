@@ -2,6 +2,9 @@ import { useState } from "react";
 import OpenOrderFormModal from "./orderForm";
 
 export default function ShoppingCart() {
+  const [firstName, setFirstname] = useState("");
+  const [phoneNumber, setPhoneNumber] = useState("");
+
   return (
     <>
       <div
@@ -11,7 +14,7 @@ export default function ShoppingCart() {
         aria-labelledby="exampleModalLabel"
         aria-hidden="true"
       >
-        <div className="modal-dialog modal-dialog-centered text-success">
+        <div className="modal-dialog modal-dialog-centered">
           <div className="modal-content">
             <div className="modal-header d-flex">
               <h5
@@ -28,7 +31,12 @@ export default function ShoppingCart() {
               ></button>
             </div>
             <div className="modal-body">
-              <p className="firstName"></p>
+              <p className="firstName">
+                Thank you for your order, {firstName}!
+              </p>
+              <p className="phoneNumber">
+                We will contact you at {phoneNumber}
+              </p>
             </div>
             <div className="modal-footer">
               <button type="button" className="btn btn-success mx-auto">
@@ -38,6 +46,10 @@ export default function ShoppingCart() {
           </div>
         </div>
       </div>
+      <OpenOrderFormModal
+        setFirstName={setFirstname}
+        setPhoneNumber={setPhoneNumber}
+      />
     </>
   );
 }

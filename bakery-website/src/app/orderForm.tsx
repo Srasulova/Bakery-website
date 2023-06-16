@@ -6,7 +6,7 @@ type OrderDetails = {
   name: string;
   date: string;
   email: string;
-  number: string | number;
+  number: string;
   cakeFlavor: string;
   fillingFlavor: string;
   imageSrc: string;
@@ -20,7 +20,15 @@ type OrderDetails = {
   comments: string;
 };
 
-export default function OpenOrderFormModal() {
+type OpenOrderFormModalProps = {
+  setFirstName: React.Dispatch<React.SetStateAction<string>>;
+  setPhoneNumber: React.Dispatch<React.SetStateAction<string>>;
+};
+
+export default function OpenOrderFormModal({
+  setFirstName,
+  setPhoneNumber,
+}: OpenOrderFormModalProps) {
   const [formData, setFormData] = useState<OrderDetails>({
     name: "",
     date: "",
@@ -56,6 +64,8 @@ export default function OpenOrderFormModal() {
     const cartItems = formData;
     console.log(cartItems);
     console.log(cartItems.name);
+    setFirstName(cartItems.name);
+    setPhoneNumber(cartItems.number);
   }
 
   return (
