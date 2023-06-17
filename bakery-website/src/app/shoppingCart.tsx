@@ -31,11 +31,11 @@ export default function ShoppingCart() {
               ></button>
             </div>
             <div className="modal-body">
-              <p className="firstName">
+              <p className="firstName text-center">
                 Thank you for your order, {firstName}!
               </p>
-              <p className="phoneNumber">
-                We will contact you at {phoneNumber}
+              <p className="phoneNumber text-center">
+                We will contact you at +1-{phoneNumber}
               </p>
             </div>
             <div className="modal-footer">
