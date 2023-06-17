@@ -53,10 +53,27 @@ export default function OpenOrderFormModal({
     >
   ) {
     const { name, value } = event.target;
-    setFormData((prevFormData) => ({
-      ...prevFormData,
-      [name]: value,
-    }));
+
+    if (name === "number") {
+      // Remove non-numeric characters from the input
+      const cleanedValue = value.replace(/\D/g, "");
+
+      // Format the phone number as (xxx)-xxx-xxxx
+      const formattedValue = `(${cleanedValue.slice(
+        0,
+        3
+      )})-${cleanedValue.slice(3, 6)}-${cleanedValue.slice(6, 10)}`;
+
+      setFormData((prevFormData) => ({
+        ...prevFormData,
+        [name]: formattedValue,
+      }));
+    } else {
+      setFormData((prevFormData) => ({
+        ...prevFormData,
+        [name]: value,
+      }));
+    }
   }
 
   function handleFormSubmit(event: React.FormEvent) {
