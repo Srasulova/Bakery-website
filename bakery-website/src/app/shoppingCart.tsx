@@ -4,6 +4,7 @@ import OpenOrderFormModal from "./orderForm";
 export default function ShoppingCart() {
   const [firstName, setFirstname] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
+  const [date, setDate] = useState("");
 
   return (
     <>
@@ -34,12 +35,20 @@ export default function ShoppingCart() {
               <p className="firstName text-center">
                 Thank you for your order, {firstName}!
               </p>
+              <p className="orderDate text-center">
+                Your order will be ready on {date}.
+              </p>
               <p className="phoneNumber text-center">
-                We will contact you at +1-{phoneNumber}
+                We will contact you at +1-{phoneNumber} to discuss the order
+                details.
               </p>
             </div>
             <div className="modal-footer">
-              <button type="button" className="btn btn-success mx-auto">
+              <button
+                type="button"
+                className="btn btn-success mx-auto"
+                data-bs-dismiss="modal"
+              >
                 Confirm your order
               </button>
             </div>
@@ -49,6 +58,7 @@ export default function ShoppingCart() {
       <OpenOrderFormModal
         setFirstName={setFirstname}
         setPhoneNumber={setPhoneNumber}
+        setDate={setDate}
       />
     </>
   );

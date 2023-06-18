@@ -1,6 +1,5 @@
 import "./orderForm.css";
-
-import React, { SetStateAction, useState } from "react";
+import { useState } from "react";
 
 type OrderDetails = {
   name: string;
@@ -23,11 +22,13 @@ type OrderDetails = {
 type OpenOrderFormModalProps = {
   setFirstName: React.Dispatch<React.SetStateAction<string>>;
   setPhoneNumber: React.Dispatch<React.SetStateAction<string>>;
+  setDate: React.Dispatch<React.SetStateAction<string>>;
 };
 
 export default function OpenOrderFormModal({
   setFirstName,
   setPhoneNumber,
+  setDate,
 }: OpenOrderFormModalProps) {
   const [formData, setFormData] = useState<OrderDetails>({
     name: "",
@@ -83,6 +84,7 @@ export default function OpenOrderFormModal({
     console.log(cartItems.name);
     setFirstName(cartItems.name);
     setPhoneNumber(cartItems.number);
+    setDate(cartItems.date);
   }
 
   return (
@@ -349,7 +351,11 @@ export default function OpenOrderFormModal({
                 </div>
               </div>
               <div className="modal-footer">
-                <button type="submit" className="btn btn-success">
+                <button
+                  type="submit"
+                  className="btn btn-success"
+                  data-bs-dismiss="modal"
+                >
                   Add to the cart
                 </button>
               </div>
