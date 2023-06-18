@@ -80,8 +80,7 @@ export default function OpenOrderFormModal({
   function handleFormSubmit(event: React.FormEvent) {
     event.preventDefault();
     const cartItems = formData;
-    console.log(cartItems);
-    console.log(cartItems.name);
+
     setFirstName(cartItems.name);
     setPhoneNumber(cartItems.number);
     setDate(cartItems.date);
@@ -354,7 +353,7 @@ export default function OpenOrderFormModal({
                 <button
                   type="submit"
                   className="btn btn-success"
-                  data-bs-dismiss="modal"
+                  // data-bs-dismiss="modal"
                 >
                   Add to the cart
                 </button>
