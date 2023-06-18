@@ -57,6 +57,14 @@ export default function GalleryExpanded({
       >
         <div className="modal-dialog modal-dialog-centered">
           <div className="modal-content">
+            {selectedImage && (
+              <Image
+                src={selectedImage.src}
+                alt={selectedImage.alt}
+                className="img-fluid rounded enlargedImage"
+              />
+            )}
+
             <button
               type="button"
               className="btn-close enlarged-img-close"
@@ -64,7 +72,7 @@ export default function GalleryExpanded({
               aria-label="Close"
             ></button>
 
-            <div className="modal-body">
+            {/* <div className="modal-body">
               {selectedImage && (
                 <Image
                   src={selectedImage.src}
@@ -72,7 +80,7 @@ export default function GalleryExpanded({
                   className="img-fluid rounded enlargedImage"
                 />
               )}
-            </div>
+            </div> */}
           </div>
         </div>
       </div>
