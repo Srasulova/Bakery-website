@@ -48,6 +48,4 @@
 .enlarged-img-content {
   max-width: fit-content;
   max-height: fit-content;
-  position: relative;
-  top: 15%;
 }
