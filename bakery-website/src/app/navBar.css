@@ -31,3 +31,10 @@
   transform: scale(1.1);
   filter: drop-shadow(0 2px 4px rgba(14, 126, 10, 0.5));
 }
+
+.shoppingCartItems {
+  position: relative;
+  top: 17px;
+  left: 23px;
+  font-size: 0.9rem;
+}

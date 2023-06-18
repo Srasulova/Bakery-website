@@ -84,12 +84,18 @@ export default function NavBar() {
               data-bs-toggle="modal"
               data-bs-target="#shoppingCartModal"
             >
-              <a className="cart my-auto mx-2 text-success fw-bolder" href="#">
+              <a
+                className="cart my-auto mx-2 text-success fw-bolder fs-5"
+                href="#"
+              >
                 Cart
               </a>
+              {/* <div className="shoppingCartItems" style={{ color: "green" }}>
+                1
+              </div> */}
               <i
-                className="bi bi-cart"
-                style={{ fontSize: "2rem", color: "green" }}
+                className="bi bi-cart "
+                style={{ fontSize: "2.5rem", color: "green" }}
               ></i>
             </button>
           </div>
