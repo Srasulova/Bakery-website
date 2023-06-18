@@ -23,12 +23,14 @@ type OpenOrderFormModalProps = {
   setFirstName: React.Dispatch<React.SetStateAction<string>>;
   setPhoneNumber: React.Dispatch<React.SetStateAction<string>>;
   setDate: React.Dispatch<React.SetStateAction<string>>;
+  handleOrderConfirmation: () => void;
 };
 
 export default function OpenOrderFormModal({
   setFirstName,
   setPhoneNumber,
   setDate,
+  handleOrderConfirmation,
 }: OpenOrderFormModalProps) {
   const [formData, setFormData] = useState<OrderDetails>({
     name: "",
@@ -84,6 +86,7 @@ export default function OpenOrderFormModal({
     setFirstName(cartItems.name);
     setPhoneNumber(cartItems.number);
     setDate(cartItems.date);
+    handleOrderConfirmation();
   }
 
   return (
@@ -353,6 +356,7 @@ export default function OpenOrderFormModal({
                 <button
                   type="submit"
                   className="btn btn-success"
+
                   // data-bs-dismiss="modal"
                 >
                   Add to the cart

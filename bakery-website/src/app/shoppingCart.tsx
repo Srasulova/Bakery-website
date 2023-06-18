@@ -5,6 +5,11 @@ export default function ShoppingCart() {
   const [firstName, setFirstname] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
   const [date, setDate] = useState("");
+  const [isSubmitted, setIsSubmitted] = useState(false);
+
+  const handleOrderConfirmation = () => {
+    setIsSubmitted(true);
+  };
 
   return (
     <>
@@ -32,16 +37,20 @@ export default function ShoppingCart() {
               ></button>
             </div>
             <div className="modal-body">
-              <p className="firstName text-center">
-                Thank you for your order, {firstName}!
-              </p>
-              <p className="orderDate text-center">
-                Your order will be ready on {date}.
-              </p>
-              <p className="phoneNumber text-center">
-                We will contact you at +1-{phoneNumber} to discuss the order
-                details.
-              </p>
+              {isSubmitted ? (
+                <div className="paragprahs">
+                  <p className="firstName text-center">
+                    Thank you for your order, {firstName}!
+                  </p>
+                  <p className="orderDate text-center">
+                    Your order will be ready on {date}.
+                  </p>
+                  <p className="phoneNumber text-center">
+                    We will contact you at +1-{phoneNumber} to discuss the order
+                    details.
+                  </p>
+                </div>
+              ) : null}
             </div>
             <div className="modal-footer">
               <button
@@ -59,6 +68,7 @@ export default function ShoppingCart() {
         setFirstName={setFirstname}
         setPhoneNumber={setPhoneNumber}
         setDate={setDate}
+        handleOrderConfirmation={handleOrderConfirmation}
       />
     </>
   );
