@@ -10,6 +10,12 @@ interface GalleryCollapsedProps {
 export default function GalleryExpanded({
   toggleGallery,
 }: GalleryCollapsedProps) {
+  const [selectedImage, setSelectedImage] = useState<any>(null);
+
+  const handleImageClick = (image: any) => {
+    setSelectedImage(image);
+  };
+
   return (
     <div className="gallery">
       <div className="gallery-title" id="gallery-title">
@@ -33,9 +39,41 @@ export default function GalleryExpanded({
                 src={image.src}
                 alt={image.alt}
                 className="img-fluid rounded gallery-img"
+                data-bs-toggle="modal"
+                data-bs-target="#enlargedImageModal"
+                onClick={() => handleImageClick(image)}
               />
             </div>
           ))}
+        </div>
+      </div>
+
+      <div
+        className="modal fade"
+        id="enlargedImageModal"
+        tabIndex={-1}
+        aria-labelledby="exampleModalLabel"
+        aria-hidden="true"
+      >
+        <div className="modal-dialog modal-dialog-centered">
+          <div className="modal-content">
+            <button
+              type="button"
+              className="btn-close enlarged-img-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+
+            <div className="modal-body">
+              {selectedImage && (
+                <Image
+                  src={selectedImage.src}
+                  alt={selectedImage.alt}
+                  className="img-fluid rounded enlargedImage"
+                />
+              )}
+            </div>
+          </div>
         </div>
       </div>
     </div>
