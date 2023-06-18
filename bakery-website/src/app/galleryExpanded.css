@@ -44,3 +44,10 @@
   z-index: 2;
   border-radius: 50%;
 }
+
+.enlarged-img-content {
+  max-width: fit-content;
+  max-height: fit-content;
+  position: relative;
+  top: 15%;
+}

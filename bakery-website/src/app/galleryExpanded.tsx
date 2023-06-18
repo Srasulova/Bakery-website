@@ -55,34 +55,26 @@ export default function GalleryExpanded({
         aria-labelledby="exampleModalLabel"
         aria-hidden="true"
       >
-        <div className="modal-dialog modal-dialog-centered">
-          <div className="modal-content">
-            {selectedImage && (
-              <Image
-                src={selectedImage.src}
-                alt={selectedImage.alt}
-                className="img-fluid rounded enlargedImage"
-              />
-            )}
+        {/* <div className="modal-dialog modal-dialog-centered"> */}
+        <div className="modal-content enlarged-img-content m-auto">
+          {selectedImage && (
+            <Image
+              src={selectedImage.src}
+              alt={selectedImage.alt}
+              className="img-fluid rounded enlargedImage"
+              width={700}
+              height={700}
+            />
+          )}
 
-            <button
-              type="button"
-              className="btn-close enlarged-img-close"
-              data-bs-dismiss="modal"
-              aria-label="Close"
-            ></button>
-
-            {/* <div className="modal-body">
-              {selectedImage && (
-                <Image
-                  src={selectedImage.src}
-                  alt={selectedImage.alt}
-                  className="img-fluid rounded enlargedImage"
-                />
-              )}
-            </div> */}
-          </div>
+          <button
+            type="button"
+            className="btn-close enlarged-img-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
         </div>
+        {/* </div> */}
       </div>
     </div>
   );
