@@ -2,6 +2,7 @@ import Image from "next/image";
 import { useState } from "react";
 import "./galleryExpanded.css";
 import galleryPictures from "./galleryImages";
+import { Picture } from "./galleryCollapsed";
 
 interface GalleryCollapsedProps {
   toggleGallery: () => void;
@@ -10,9 +11,9 @@ interface GalleryCollapsedProps {
 export default function GalleryExpanded({
   toggleGallery,
 }: GalleryCollapsedProps) {
-  const [selectedImage, setSelectedImage] = useState<any>(null);
+  const [selectedImage, setSelectedImage] = useState<Picture | null>(null);
 
-  const handleImageClick = (image: any) => {
+  const handleImageClick = (image: Picture) => {
     setSelectedImage(image);
   };
 
@@ -33,7 +34,7 @@ export default function GalleryExpanded({
           Less {"<-"}
         </button>
         <div className="row row-cols-5 g-2">
-          {galleryPictures.map((image: any) => (
+          {galleryPictures.map((image: Picture) => (
             <div className="col" key={image.id}>
               <Image
                 src={image.src}

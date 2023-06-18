@@ -2,10 +2,17 @@ import Image from "next/image";
 import { useState } from "react";
 import "./galleryCollapsed.css";
 import galleryPictures from "./galleryImages";
+import { GalleryPictures } from "./galleryImages";
 
 interface GalleryCollapsedProps {
   toggleGallery: () => void;
 }
+
+export type Picture = {
+  id: number;
+  src: string;
+  alt: string;
+};
 
 export default function GalleryCollapsed({
   toggleGallery,
@@ -16,7 +23,7 @@ export default function GalleryCollapsed({
     React.Dispatch<React.SetStateAction<number>>
   ] = useState(0);
 
-  const mainImage = galleryPictures[currentIndex];
+  const mainImage: GalleryPictures = galleryPictures[currentIndex];
 
   const showNextImage = () => {
     const nextImage =
@@ -70,7 +77,7 @@ export default function GalleryCollapsed({
             </div>
             <div className="col-md-6 gallery-image container">
               <div className="row row-cols-3 g-2">
-                {rightSideGridImages.map((image: any, index: number) => (
+                {rightSideGridImages.map((image: Picture, index: number) => (
                   <div
                     className="col"
                     key={image.id}
