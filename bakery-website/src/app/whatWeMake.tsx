@@ -15,7 +15,7 @@ export default function WhatWeMake() {
           What we make
         </h2>
         <div className="img-container-div container">
-          <div className="row row-cols-4">
+          <div className="row row-cols-1 row-cols-sm-2 row-cols-md-2 row-cols-lg-4">
             <div className="img-div col">
               <Image
                 src={customCake}

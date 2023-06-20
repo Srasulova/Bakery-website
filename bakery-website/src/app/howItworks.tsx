@@ -20,7 +20,7 @@ export default function HowItWorks() {
           Build your custom cake
         </h2>
         <div className="icons container row mx-auto gap-5 text-center counter">
-          <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 mx-auto icons-row">
+          <div className="row row-cols-1 row-cols-sm-2 row-cols-md-2 row-cols-lg-3 mx-auto icons-row">
             <div className="pick-flavor-cake col">
               <figure className="figure">
                 <div className="counter-wrapper">
