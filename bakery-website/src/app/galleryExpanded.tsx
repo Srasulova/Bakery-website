@@ -33,7 +33,7 @@ export default function GalleryExpanded({
         >
           Less {"<-"}
         </button>
-        <div className="row row-cols-5 g-2">
+        <div className="row row-cols-1 row-cols-sm-2 row-cols-md-4 row-cols-lg-5 g-2">
           {galleryPictures.map((image: Picture) => (
             <div className="col" key={image.id}>
               <Image
