@@ -6,6 +6,11 @@ export default function ShoppingCart() {
   const [phoneNumber, setPhoneNumber] = useState("");
   const [date, setDate] = useState("");
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [address, setAddress] = useState("");
+  const [city, setCity] = useState("");
+  const [state, setState] = useState("");
+  const [zipCode, setZipCode] = useState("");
+  const [deliveryMethod, setDeliveryMethod] = useState("");
 
   const handleOrderConfirmation = () => {
     setIsSubmitted(true);
@@ -45,6 +50,22 @@ export default function ShoppingCart() {
                   <p className="orderDate text-center">
                     Your order will be ready on {date}.
                   </p>
+                  {deliveryMethod === "Delivery" &&
+                  address &&
+                  city &&
+                  state &&
+                  zipCode ? (
+                    <p className="deliveryMethod-deliver address text-center">
+                      We will deliver your order at the address: {address},{" "}
+                      {city}, {state}, {zipCode}
+                    </p>
+                  ) : (
+                    <p className="deliveryMethod-pickUp text-center">
+                      You can pick up your cake at 647 Pearl Harbor str,
+                      Bridgeport, CT, 06610.
+                    </p>
+                  )}
+
                   <p className="phoneNumber text-center">
                     We will contact you at +1-{phoneNumber} to discuss the order
                     details.
@@ -69,6 +90,11 @@ export default function ShoppingCart() {
         setPhoneNumber={setPhoneNumber}
         setDate={setDate}
         handleOrderConfirmation={handleOrderConfirmation}
+        setAddress={setAddress}
+        setCity={setCity}
+        setState={setState}
+        setZipCode={setZipCode}
+        setDeliveryMethod={setDeliveryMethod}
       />
     </>
   );

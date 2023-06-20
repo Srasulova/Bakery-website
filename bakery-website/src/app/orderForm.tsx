@@ -1,3 +1,4 @@
+import { format } from "path";
 import "./orderForm.css";
 import { useState } from "react";
 
@@ -15,7 +16,7 @@ type OrderDetails = {
   address: string;
   city: string;
   state: string;
-  zipCode: number;
+  zipCode: string;
   comments: string;
 };
 
@@ -24,6 +25,11 @@ type OpenOrderFormModalProps = {
   setPhoneNumber: React.Dispatch<React.SetStateAction<string>>;
   setDate: React.Dispatch<React.SetStateAction<string>>;
   handleOrderConfirmation: () => void;
+  setAddress: React.Dispatch<React.SetStateAction<string>>;
+  setCity: React.Dispatch<React.SetStateAction<string>>;
+  setState: React.Dispatch<React.SetStateAction<string>>;
+  setZipCode: React.Dispatch<React.SetStateAction<string>>;
+  setDeliveryMethod: React.Dispatch<React.SetStateAction<string>>;
 };
 
 export default function OpenOrderFormModal({
@@ -31,6 +37,11 @@ export default function OpenOrderFormModal({
   setPhoneNumber,
   setDate,
   handleOrderConfirmation,
+  setAddress,
+  setCity,
+  setState,
+  setZipCode,
+  setDeliveryMethod,
 }: OpenOrderFormModalProps) {
   const [formData, setFormData] = useState<OrderDetails>({
     name: "",
@@ -46,7 +57,7 @@ export default function OpenOrderFormModal({
     address: "",
     city: "",
     state: "",
-    zipCode: 0,
+    zipCode: "",
     comments: "",
   });
 
@@ -71,6 +82,12 @@ export default function OpenOrderFormModal({
         ...prevFormData,
         [name]: formattedValue,
       }));
+    } else if (name === "delivery") {
+      setFormData((prevFormData) => ({
+        ...prevFormData,
+        deliveryMethod: value,
+      }));
+      setDeliveryMethod(value);
     } else {
       setFormData((prevFormData) => ({
         ...prevFormData,
@@ -86,6 +103,11 @@ export default function OpenOrderFormModal({
     setFirstName(cartItems.name);
     setPhoneNumber(cartItems.number);
     setDate(cartItems.date);
+    setAddress(cartItems.address);
+    setCity(cartItems.city),
+      setState(cartItems.state),
+      setZipCode(cartItems.zipCode),
+      setDeliveryMethod(cartItems.deliveryMethod);
     handleOrderConfirmation();
   }
 
@@ -287,56 +309,76 @@ export default function OpenOrderFormModal({
                 </div>
               </div>
 
-              <div className="col-12">
-                <label className="form-label">Address</label>
-                <input
-                  type="text"
-                  className="form-control form-control-sm"
-                  id="inputAddress2"
-                  name="address"
-                  value={formData.address}
-                  onChange={handleInputChange}
-                  placeholder="Apartment, studio, or floor"
-                />
+              <div className="ifDelivery col-12">
+                {formData.deliveryMethod === "Delivery" && (
+                  <div className="col-12">
+                    <label className="form-label">Address</label>
+                    <input
+                      type="text"
+                      className="form-control form-control-sm"
+                      id="inputAddress2"
+                      name="address"
+                      value={formData.address}
+                      onChange={handleInputChange}
+                      placeholder="Apartment, studio, or floor"
+                    />
+                  </div>
+                )}
               </div>
-              <div className="col-md-6">
-                <label className="form-label">City</label>
-                <input
-                  type="text"
-                  className="form-control form-control-sm"
-                  id="inputCity"
-                  name="city"
-                  value={formData.city}
-                  onChange={handleInputChange}
-                />
+
+              <div className="ifDelivery col-md-6">
+                {formData.deliveryMethod === "Delivery" && (
+                  <div className="">
+                    <label className="form-label">City</label>
+                    <input
+                      type="text"
+                      className="form-control form-control-sm"
+                      id="inputCity"
+                      name="city"
+                      value={formData.city}
+                      onChange={handleInputChange}
+                    />
+                  </div>
+                )}
               </div>
-              <div className="col-md-4">
-                <label className="form-label">State</label>
-                <select
-                  id="inputState"
-                  className="form-select form-select-sm"
-                  name="state"
-                  value={formData.state}
-                  onChange={handleInputChange}
-                >
-                  <option value="" disabled selected>
-                    Select a state
-                  </option>
-                  <option value="Connecticut">Connecticut</option>
-                  <option value="New York">New York</option>
-                </select>
+
+              <div className="ifDelivery col-md-4">
+                {formData.deliveryMethod === "Delivery" && (
+                  <div className="">
+                    <label className="form-label">State</label>
+                    <select
+                      id="inputState"
+                      className="form-select form-select-sm"
+                      name="state"
+                      value={formData.state}
+                      onChange={handleInputChange}
+                    >
+                      <option value="" disabled selected>
+                        Select a state
+                      </option>
+                      <option value="Connecticut">Connecticut</option>
+                      <option value="New York">New York</option>
+                    </select>
+                  </div>
+                )}
               </div>
-              <div className="col-md-2">
-                <label className="form-label">Zip</label>
-                <input
-                  type="text"
-                  className="form-control form-control-sm"
-                  id="inputZip"
-                  name="zipCode"
-                  value={formData.zipCode}
-                  onChange={handleInputChange}
-                />
+
+              <div className="ifDelivery col-md-2">
+                {formData.deliveryMethod === "Delivery" && (
+                  <div className="">
+                    <label className="form-label">Zip</label>
+                    <input
+                      type="text"
+                      className="form-control form-control-sm"
+                      id="inputZip"
+                      name="zipCode"
+                      value={formData.zipCode}
+                      onChange={handleInputChange}
+                    />
+                  </div>
+                )}
               </div>
+
               <div className="col-12">
                 <div className="mb-3">
                   <label className="form-label">Add your comments</label>
