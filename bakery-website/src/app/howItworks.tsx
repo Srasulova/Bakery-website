@@ -20,8 +20,8 @@ export default function HowItWorks() {
           Build your custom cake
         </h2>
         <div className="icons container row mx-auto gap-5 text-center counter">
-          <div className="row mx-auto icons-row">
-            <div className="pick-flavor-cake col-4">
+          <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 mx-auto icons-row">
+            <div className="pick-flavor-cake col">
               <figure className="figure">
                 <div className="counter-wrapper">
                   <Image
@@ -39,7 +39,7 @@ export default function HowItWorks() {
               </figure>
             </div>
 
-            <div className="pick-flavor-filling col-4">
+            <div className="pick-flavor-filling col">
               <figure className="figure">
                 <div className="counter-wrapper">
                   <Image
@@ -57,7 +57,7 @@ export default function HowItWorks() {
               </figure>
             </div>
 
-            <div className="upload-picture px-5 col-4">
+            <div className="upload-picture px-5 col">
               <figure className="figure">
                 <div className="counter-wrapper">
                   <Image
@@ -75,7 +75,7 @@ export default function HowItWorks() {
               </figure>
             </div>
 
-            <div className="place-order col-4">
+            <div className="place-order col">
               <figure className="figure">
                 <div className="counter-wrapper">
                   <Image
@@ -93,7 +93,7 @@ export default function HowItWorks() {
               </figure>
             </div>
 
-            <div className="receive-cake px-5 col-4">
+            <div className="receive-cake px-5 col">
               <figure className="figure">
                 <div className="counter-wrapper">
                   <Image
@@ -111,7 +111,7 @@ export default function HowItWorks() {
               </figure>
             </div>
 
-            <div className="customer px-5 col-4">
+            <div className="customer px-5 col">
               <figure className="figure">
                 <div className="counter-wrapper">
                   <Image
