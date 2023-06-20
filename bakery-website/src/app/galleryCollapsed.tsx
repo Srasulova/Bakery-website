@@ -76,7 +76,7 @@ export default function GalleryCollapsed({
               </div>
             </div>
             <div className="col-md-6 gallery-image container">
-              <div className="row row-cols-3 g-2">
+              <div className="row row-cols-1 row-cols-sm-2 row-cols-md-2 row-cols-lg-3 g-2">
                 {rightSideGridImages.map((image: Picture, index: number) => (
                   <div
                     className="col"
