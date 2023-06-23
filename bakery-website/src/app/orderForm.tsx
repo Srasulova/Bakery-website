@@ -328,7 +328,7 @@ export default function OpenOrderFormModal({
 
               <div className="ifDelivery col-md-6">
                 {formData.deliveryMethod === "Delivery" && (
-                  <div className="">
+                  <div className="cityInput">
                     <label className="form-label">City</label>
                     <input
                       type="text"
@@ -344,7 +344,7 @@ export default function OpenOrderFormModal({
 
               <div className="ifDelivery col-md-4">
                 {formData.deliveryMethod === "Delivery" && (
-                  <div className="">
+                  <div className="stateInput">
                     <label className="form-label">State</label>
                     <select
                       id="inputState"
@@ -365,8 +365,8 @@ export default function OpenOrderFormModal({
 
               <div className="ifDelivery col-md-2">
                 {formData.deliveryMethod === "Delivery" && (
-                  <div className="">
-                    <label className="form-label">Zip</label>
+                  <div className="zipCodeInput">
+                    <label className="form-label">ZipCode</label>
                     <input
                       type="text"
                       className="form-control form-control-sm"
@@ -397,7 +397,7 @@ export default function OpenOrderFormModal({
               <div className="modal-footer">
                 <button
                   type="submit"
-                  className="btn btn-success"
+                  className="btn btn-success addToTheCart"
 
                   // data-bs-dismiss="modal"
                 >
