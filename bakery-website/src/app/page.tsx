@@ -30,9 +30,6 @@ export default function Home() {
         <GalleryCollapsed toggleGallery={handleToggleGallery} />
       )}
 
-      {/* <GalleryExpanded /> */}
-      {/* <GalleryCollapsed /> */}
-
       <Footer />
     </main>
   );
